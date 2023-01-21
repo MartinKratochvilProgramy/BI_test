@@ -1,31 +1,37 @@
 import React, { useState, useEffect } from 'react'
 import { Product } from '../types/product'
-import img2 from '../../public/assets/img2.png';
-import img3 from '../../public/assets/img3.png';
-import img4 from '../../public/assets/img4.png';
+import img2 from '/assets/img2.png';
+import img3 from '/assets/img3.png';
+import img4 from '/assets/img4.png';
+import { getImageUrl } from '../utils/getImageUrl';
 
 interface Props {
     heroItem: Product;
+    addToCart: (item: Product) => void;
 }
 
 export const Hero: React.FC<Props> = ({
-    heroItem
+    heroItem,
+    addToCart
 }) => {
 
-    function getImageUrl(name: string) {
-        return new URL(`../../public/assets/${name}`, import.meta.url).href
+    function handleAddToCartClick() {
+        addToCart(heroItem);
     }
-    
 
   return (
       <div className='flex flex-col w-full pt-10 border-b-2'>
         <div className='flex justify-between w-full'>
             <div className='font-bold text-2xl'>{heroItem.name}</div> 
-            <button className='rounded-none px-6 py-1 bg-black text-white text-sm'>ADD TO CART</button>
+                <button
+                    onClick={handleAddToCartClick}
+                    className='rounded-none px-6 py-1 bg-black text-white text-sm'>
+                    ADD TO CART
+                </button>
         </div>
 
         <div className='flex mt-8 h-96 relative'>
-              <img className='object-cover' src={getImageUrl(heroItem.image.src)} alt="" />
+            <img className='object-cover' src={getImageUrl(heroItem.image.src)} alt="" />
             <div className='absolute left-0 bottom-0 bg-white px-10 py-3 font-bold'>
                 Photo of the day
             </div>
