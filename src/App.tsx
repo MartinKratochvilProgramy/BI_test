@@ -13,7 +13,7 @@ function App() {
     setCart([]);
   }
 
-  function addToCart(item: Product) {
+  function addItemToCart(item: Product) {
     setCart([...cart, item])
   }
 
@@ -30,7 +30,7 @@ function App() {
     <div className="flex w-full justify-center">
       <div className="px-10 w-full max-w-[1200px]">
         <Navbar cart={cart} clearCart={clearCart} removeItemFromCart={removeItemFromCart} />
-        <Hero heroItem={heroItem} addToCart={addToCart} />
+        <Hero heroItem={heroItem} addItemToCart={addItemToCart} />
       </div>
     </div>
   )

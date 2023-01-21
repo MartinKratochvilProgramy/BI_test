@@ -7,16 +7,16 @@ import { getImageUrl } from '../utils/getImageUrl';
 
 interface Props {
     heroItem: Product;
-    addToCart: (item: Product) => void;
+    addItemToCart: (item: Product) => void;
 }
 
 export const Hero: React.FC<Props> = ({
     heroItem,
-    addToCart
+    addItemToCart
 }) => {
 
-    function handleAddToCartClick() {
-        addToCart(heroItem);
+    function handleaddItemToCartClick() {
+        addItemToCart(heroItem);
     }
 
   return (
@@ -24,7 +24,7 @@ export const Hero: React.FC<Props> = ({
         <div className='flex justify-between w-full'>
             <div className='font-bold text-2xl'>{heroItem.name}</div> 
                 <button
-                    onClick={handleAddToCartClick}
+                    onClick={handleaddItemToCartClick}
                     className='rounded-none px-6 py-1 bg-black text-white text-sm'>
                     ADD TO CART
                 </button>
