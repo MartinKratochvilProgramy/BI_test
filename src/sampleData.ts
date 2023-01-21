@@ -4,7 +4,7 @@ export const sampleData = {
             "name": "Red Bench",
             "category": "people",
             "price": 3.89,
-            "currency": "USD",
+            "currency": "USD" as const,
             "image": {
                 "src": "",
                 "alt": ""
@@ -18,7 +18,7 @@ export const sampleData = {
             "name": "Egg Balloon",
             "category": "food",
             "price": 93.89,
-            "currency": "USD",
+            "currency": "USD" as const,
             "image": "",
             "bestseller": false,
             "featured": false,
@@ -28,7 +28,7 @@ export const sampleData = {
             "name": "Man",
             "category": "people",
             "price": 100,
-            "currency": "USD",
+            "currency": "USD" as const,
             "image": {
                 "src": "",
                 "alt": ""
@@ -41,7 +41,7 @@ export const sampleData = {
             "name": "Architecture",
             "category": "landmarks",
             "price": 101,
-            "currency": "USD",
+            "currency": "USD" as const,
             "dimmentions": {
                 "width": 1020,
                 "height": 1020
@@ -55,10 +55,10 @@ export const sampleData = {
             "name": "Samurai King Restling",
             "category": "landmarks",
             "price": 101,
-            "currency": "USD",
+            "currency": "USD" as const,
             "image": {
-                "src": "",
-                "alt": ""
+                "src": "img1.png",
+                "alt": "Samurai King Restling"
             },
             "bestseller": false,
             "featured": true,
