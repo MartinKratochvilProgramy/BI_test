@@ -138,6 +138,7 @@ export const Photos: React.FC<Props> = ({ addItemToCart }) => {
                         Sort By
                     </button>
                     <SortDropdown
+                        sortBy={sortBy}
                         setSortBy={setSortBy}
                     />
                 </div>

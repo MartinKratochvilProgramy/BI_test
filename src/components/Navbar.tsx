@@ -5,31 +5,39 @@ import { getImageUrl } from '../utils/getImageUrl';
 
 interface Props {
   cart: Product[];
+  cartExpanded: boolean;
+  setCartExpanded: (value: boolean) => void;
   clearCart: () => void;
   removeItemFromCart: (e: React.MouseEvent, item: Product) => void;
 }
 
-export const Navbar: React.FC<Props> = ({ cart, clearCart, removeItemFromCart }) => {
+export const Navbar: React.FC<Props> = ({ 
+  cart, 
+  cartExpanded,
+  setCartExpanded,
+  clearCart, 
+  removeItemFromCart
+}) => {
   
-  const [expanded, setExpanded] = useState(false);
+
 
   function handleClearClick() {
     
-    setExpanded(false);
+    setCartExpanded(false);
     clearCart();
   }
   
   function handleExpandClick(e: React.MouseEvent) {
     
-    if (!expanded) {
-      document.addEventListener('click', () => setExpanded(false));
+    if (!cartExpanded) {
+      document.addEventListener('click', () => setCartExpanded(false));
       e.stopPropagation();
     } else {
-      document.removeEventListener('click', () => setExpanded(false));
+      document.removeEventListener('click', () => setCartExpanded(false));
       e.stopPropagation();
     }
 
-    setExpanded(!expanded);
+    setCartExpanded(!cartExpanded);
   }
 
   return (
@@ -44,7 +52,7 @@ export const Navbar: React.FC<Props> = ({ cart, clearCart, removeItemFromCart })
         />
         {cart.length > 0 && <div className='absolute right-0 bottom-0 bg-black font-bold text-white text-xs px-1'>{cart.length}</div>}
       
-        {expanded && 
+        {cartExpanded && 
           <div className='z-10 absolute flex flex-col right-0 border-2 bg-white w-80 px-6 py-2'>
             <div className='space-y-2 pb-4 border-b-2'>
 

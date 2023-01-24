@@ -8,14 +8,20 @@ import { Product } from "./types/product";
 function App() {
 
   const [cart, setCart] = useState<Product[]>([]);
-  const [heroItem, setHeroItem] = useState(sampleData.products[4]);
+  const [cartExpanded, setCartExpanded] = useState(false);
+  
+  const featuredItem = sampleData.products.filter(item => {
+    return item.featured;
+  })[0];
 
   function clearCart() {
     setCart([]);
+    setCartExpanded(false);
   }
 
   function addItemToCart(item: Product) {
-    setCart([...cart, item])
+    setCart([...cart, item]);
+    setCartExpanded(true);
   }
 
   function removeItemFromCart(e: React.MouseEvent, item: Product) {
@@ -33,11 +39,13 @@ function App() {
       <div className="px-10 w-full max-w-[1200px]">
         <Navbar 
           cart={cart} 
+          cartExpanded={cartExpanded}
+          setCartExpanded={setCartExpanded}
           clearCart={clearCart} 
           removeItemFromCart={removeItemFromCart} 
         />
         <Hero 
-          heroItem={heroItem} 
+          featuredItem={featuredItem} 
           addItemToCart={addItemToCart} 
         />
         <Photos 

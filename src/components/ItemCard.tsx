@@ -18,6 +18,11 @@ export const ItemCard: React.FC<Props> = ({ item, addItemToCart }) => {
                 alt={item.image.alt} 
                 className='w-full h-full object-cover'
             />
+            {item.featured &&
+                <div className='bg-white absolute left-0 top-0 px-2 font-semibold'>
+                    Best Seller
+                </div>
+            }
             <button 
                 className='hidden group-hover:flex absolute left-0 right-0 bottom-0 h-8 bg-black text-white justify-center items-center font-semibold'
                 onClick={() => addItemToCart(item)}    

@@ -3,10 +3,11 @@ import downCaret from '/assets/down-arrow.png';
 import { SortOptions } from '../types/sortOptions';
 
 interface Props {
+    sortBy: string;
     setSortBy: (sortOption: SortOptions) => void;
 }
 
-export const SortDropdown: React.FC<Props> = ({ setSortBy }) => {
+export const SortDropdown: React.FC<Props> = ({ sortBy, setSortBy }) => {
 
     const [display, setDisplay] = useState(false);
 
@@ -29,7 +30,7 @@ export const SortDropdown: React.FC<Props> = ({ setSortBy }) => {
             className='font-semibold flex justify-center items-center'
             onClick={(e) => handleDropdownClick(e)}
         >
-            Price
+            {sortBy}
             <img 
                 src={downCaret} 
                 alt="down arrow" 
