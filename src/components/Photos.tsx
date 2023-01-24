@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Product } from '../types/product';
 import { sampleData } from "../sampleData";
 import upDownIcon from '/assets/up-down.png';
+import listIcon from '/assets/list.png';
 import { SortDropdown } from './SortDropdown';
 import { CategoryTicks } from './CategoryTicks';
 import { PhotosDisplay } from './PhotosDisplay';
@@ -18,6 +19,7 @@ export const Photos: React.FC<Props> = ({ addItemToCart }) => {
     const [sortAscending, setSortAscending] = useState(true);
     const [categories, setCategories] = useState<string[]>([]);     // TODO: add types for categories
     const [range, setRange] = useState("");                         // TODO: add types for ranges
+    const [displayMobileMenu, setDisplayMobileMenu] = useState(false);
 
     useEffect(() => {
         // name / price sorting
@@ -122,10 +124,10 @@ export const Photos: React.FC<Props> = ({ addItemToCart }) => {
     return (
         <div className='mt-10'>
             <div className='flex justify-between'>
-                <h1 className='text-gray-400 text-xl'>
+                <h1 className='text-gray-400 text-md md:text-xl'>
                     <span className='font-bold text-black'>Photography /</span> Premium Photos
                 </h1>
-                <div className='flex justify-center items-center space-x-4'>
+                <div className='hidden md:flex justify-center items-center space-x-4'>
                     <button 
                         className='text-gray-400 flex justify-center items-center'
                         onClick={() => setSortAscending(!sortAscending)}
@@ -142,12 +144,49 @@ export const Photos: React.FC<Props> = ({ addItemToCart }) => {
                         setSortBy={setSortBy}
                     />
                 </div>
+                <div className='relative flex md:hidden justify-center items-center'>
+                    <img 
+                        src={listIcon} 
+                        alt="list icon" 
+                        className='w-6'
+                        onClick={() => setDisplayMobileMenu(!displayMobileMenu)}
+                    />
+                    {displayMobileMenu && 
+                        <div className='absolute w-[350px] top-[50px] translate-x-[-145px] p-2 z-10 bg-white'>
+                            <div className='text-2xl font-bold'>
+                                Filter
+                            </div>
+                            <CategoryTicks
+                                handleSetCategories={handleSetCategories}
+                                handleSetRanges={handleSetRanges}
+                            />
+                            <div className='flex w-full justify-center space-x-4 mt-4'>
+                                <button 
+                                    className='flex justify-center w-full text-xl border-solid border-2 border-black'
+                                    onClick={() => setDisplayMobileMenu(!displayMobileMenu)}
+                                >
+                                    CLEAR
+                                </button>
+                                <button 
+                                    className='flex justify-center w-full bg-black text-white text-xl border-solid border-2 border-black'
+                                    onClick={() => setDisplayMobileMenu(!displayMobileMenu)}
+                                >
+                                    SAVE
+                                </button>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+
             </div>
             <div className='flex mt-10'>
-                <CategoryTicks
-                    handleSetCategories={handleSetCategories}
-                    handleSetRanges={handleSetRanges}
-                />
+                <div className='hidden md:block'>
+                    <CategoryTicks
+                        handleSetCategories={handleSetCategories}
+                        handleSetRanges={handleSetRanges}
+                    />
+                </div>
                 <PhotosDisplay 
                     items={items}
                     addItemToCart={addItemToCart}
