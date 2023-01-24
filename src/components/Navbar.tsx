@@ -6,7 +6,7 @@ import { getImageUrl } from '../utils/getImageUrl';
 interface Props {
   cart: Product[];
   clearCart: () => void;
-  removeItemFromCart: (item: Product) => void;
+  removeItemFromCart: (e: React.MouseEvent, item: Product) => void;
 }
 
 export const Navbar: React.FC<Props> = ({ cart, clearCart, removeItemFromCart }) => {
@@ -54,17 +54,17 @@ export const Navbar: React.FC<Props> = ({ cart, clearCart, removeItemFromCart })
                     <div className='flex w-full justify-end mb-2'>
                       <button
                         className='font-bold'
-                        onClick={() => removeItemFromCart(item)}>
+                        onClick={(e) => removeItemFromCart(e, item)}>
                         X
                       </button>
                     </div>
                     <div className='flex w-full justify-end mb-2'>
-                      <div className='flex flex-col w-full'>
+                      <div className='flex flex-col w-full mr-3'>
                         <div className='text-sm font-bold'>{item.name}</div>
                         <div className='text-sm text-gray-500'>$ {item.price}</div>
                       </div>
                       <img
-                        className='flex w-4/12 bg-red-400'
+                        className='flex w-8/12 h-16 object-cover'
                         src={getImageUrl(item.image.src)}
                       >
                       </img>

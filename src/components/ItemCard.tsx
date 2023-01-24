@@ -4,9 +4,10 @@ import { getImageUrl } from '../utils/getImageUrl';
 
 interface Props {
     item: Product;
+    addItemToCart: (item: Product) => void;
 }
 
-export const ItemCard: React.FC<Props> = ({ item }) => {
+export const ItemCard: React.FC<Props> = ({ item, addItemToCart }) => {
   return (
     <div className='w-full h-96 flex flex-col justify-start'>
         <div 
@@ -17,7 +18,10 @@ export const ItemCard: React.FC<Props> = ({ item }) => {
                 alt={item.image.alt} 
                 className='w-full h-full object-cover'
             />
-            <button className='hidden group-hover:flex absolute left-0 right-0 bottom-0 h-8 bg-black text-white justify-center items-center font-semibold'>
+            <button 
+                className='hidden group-hover:flex absolute left-0 right-0 bottom-0 h-8 bg-black text-white justify-center items-center font-semibold'
+                onClick={() => addItemToCart(item)}    
+            >
                 ADD TO CART
             </button>
         </div>

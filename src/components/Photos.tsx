@@ -7,7 +7,11 @@ import { CategoryTicks } from './CategoryTicks';
 import { PhotosDisplay } from './PhotosDisplay';
 import { SortOptions } from '../types/sortOptions';
 
-export const Photos = () => {
+interface Props {
+    addItemToCart: (item: Product) => void;
+}
+
+export const Photos: React.FC<Props> = ({ addItemToCart }) => {
 
     const [items, setItems] = useState<Product[]>([...sampleData.products]);
     const [sortBy, setSortBy] = useState<SortOptions>("Price");
@@ -38,7 +42,6 @@ export const Photos = () => {
       setItems([...newItems]);
     
     }, [sortBy, sortAscending])
-    
 
     return (
         <div className='mt-10'>
@@ -67,6 +70,7 @@ export const Photos = () => {
                 <CategoryTicks />
                 <PhotosDisplay 
                     items={items}
+                    addItemToCart={addItemToCart}
                 />
             </div>
         </div>

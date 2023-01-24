@@ -18,7 +18,8 @@ function App() {
     setCart([...cart, item])
   }
 
-  function removeItemFromCart(item: Product) {
+  function removeItemFromCart(e: React.MouseEvent, item: Product) {
+    e.stopPropagation();
     let newCart = [...cart];
     newCart = newCart.filter(function (cartItem: Product) {
       return cartItem !== item;
@@ -30,9 +31,18 @@ function App() {
   return (
     <div className="flex w-full justify-center">
       <div className="px-10 w-full max-w-[1200px]">
-        <Navbar cart={cart} clearCart={clearCart} removeItemFromCart={removeItemFromCart} />
-        <Hero heroItem={heroItem} addItemToCart={addItemToCart} />
-        <Photos />
+        <Navbar 
+          cart={cart} 
+          clearCart={clearCart} 
+          removeItemFromCart={removeItemFromCart} 
+        />
+        <Hero 
+          heroItem={heroItem} 
+          addItemToCart={addItemToCart} 
+        />
+        <Photos 
+          addItemToCart={addItemToCart} 
+        />
       </div>
     </div>
   )
