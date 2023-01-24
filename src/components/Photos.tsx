@@ -17,8 +17,10 @@ export const Photos: React.FC<Props> = ({ addItemToCart }) => {
     const [sortBy, setSortBy] = useState<SortOptions>("Price");
     const [sortAscending, setSortAscending] = useState(true);
     const [categories, setCategories] = useState<string[]>([]);     // TODO: add types for categories
+    const [range, setRange] = useState("");                         // TODO: add types for ranges
 
     useEffect(() => {
+        // name / price sorting
       const newItems = [...items];
       
       if (sortBy === "Price") {
@@ -45,6 +47,7 @@ export const Photos: React.FC<Props> = ({ addItemToCart }) => {
     }, [sortBy, sortAscending])
 
     useEffect(() => {
+        // category sorting
         if (categories.length > 0) {
             const newItems: Product[] = [];
             for (const item of sampleData.products) {
@@ -58,6 +61,31 @@ export const Photos: React.FC<Props> = ({ addItemToCart }) => {
         }
     
     }, [categories])
+    
+    useEffect(() => {
+        // range sorting
+        let newItems = [...sampleData.products];
+        if (range === "Lower than $20") {
+            newItems = newItems.filter((item) => {
+                return (item.price < 20)
+            })
+        } else if (range === "$20 - $100") {
+            newItems = newItems.filter((item) => {
+                return (item.price >= 20 && item.price < 100)
+            })
+        } else if (range === "$100 - $200") {
+            newItems = newItems.filter((item) => {
+                return (item.price >= 100 && item.price < 200)
+            })
+        } else if (range === "More than $200") {
+            newItems = newItems.filter((item) => {
+                return (item.price >= 200)
+            })
+        } else {
+            return;
+        }
+        setItems(newItems);
+    }, [range])
     
 
     function handleSetCategories(newCategory: string) {
@@ -75,7 +103,20 @@ export const Photos: React.FC<Props> = ({ addItemToCart }) => {
             }
             setCategories(newCategories);   
         }
-        
+    }
+
+    function handleSetRanges(newRange: string) {
+        if (newRange === range) {
+            // deselect all radio checkboxes
+            var allCheckboxes = document.querySelectorAll('input[type=radio]') as NodeListOf<Element>;
+            for (let i = 0; i < allCheckboxes.length; i++) {
+                const checkbox: any = allCheckboxes[i];
+                checkbox.checked = false;
+            }
+            setItems([...sampleData.products]);
+        } else {
+            setRange(newRange);
+        }
     }
 
     return (
@@ -104,6 +145,7 @@ export const Photos: React.FC<Props> = ({ addItemToCart }) => {
             <div className='flex mt-10'>
                 <CategoryTicks
                     handleSetCategories={handleSetCategories}
+                    handleSetRanges={handleSetRanges}
                 />
                 <PhotosDisplay 
                     items={items}
