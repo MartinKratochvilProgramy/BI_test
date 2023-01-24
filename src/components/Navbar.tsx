@@ -14,8 +14,22 @@ export const Navbar: React.FC<Props> = ({ cart, clearCart, removeItemFromCart })
   const [expanded, setExpanded] = useState(false);
 
   function handleClearClick() {
+    
     setExpanded(false);
     clearCart();
+  }
+  
+  function handleExpandClick(e: React.MouseEvent) {
+    
+    if (!expanded) {
+      document.addEventListener('click', () => setExpanded(false));
+      e.stopPropagation();
+    } else {
+      document.removeEventListener('click', () => setExpanded(false));
+      e.stopPropagation();
+    }
+
+    setExpanded(!expanded);
   }
 
   return (
@@ -26,7 +40,7 @@ export const Navbar: React.FC<Props> = ({ cart, clearCart, removeItemFromCart })
           className='w-8 cursor-pointer'
           src={shoppingCartIcon}
           alt="shopping cart"
-          onClick={() => setExpanded(!expanded)}
+          onClick={(e) => handleExpandClick(e)}
         />
         {cart.length > 0 && <div className='absolute right-0 bottom-0 bg-black font-bold text-white text-xs px-1'>{cart.length}</div>}
       
