@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Hero } from "./components/Hero";
 import { Navbar } from "./components/Navbar"
+import { Photos } from "./components/Photos";
 import { sampleData } from "./sampleData"
 import { Product } from "./types/product";
 
@@ -31,6 +32,7 @@ function App() {
       <div className="px-10 w-full max-w-[1200px]">
         <Navbar cart={cart} clearCart={clearCart} removeItemFromCart={removeItemFromCart} />
         <Hero heroItem={heroItem} addItemToCart={addItemToCart} />
+        <Photos />
       </div>
     </div>
   )
