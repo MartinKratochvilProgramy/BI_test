@@ -1,6 +1,11 @@
 import React from 'react'
 
-export const CategoryTicks = () => {
+interface Props {
+    handleSetCategories: (newCategory: string) => void;
+}
+
+export const CategoryTicks: React.FC<Props> = ({ handleSetCategories }) => {
+
   return (
     <div className='w-80 pr-8'>
         <h1 className='font-bold mb-6'>Category</h1>
@@ -9,7 +14,8 @@ export const CategoryTicks = () => {
                 <input 
                     id="default-checkbox" 
                     type="checkbox" 
-                    value="" 
+                    value="People" 
+                    onClick={(e: React.FormEvent<HTMLInputElement>) => handleSetCategories(e.currentTarget.value)}
                     className="w-4 h-4 text-black bg-black border-2 rounded accent-white mr-2 cursor-pointer" 
                 />
                 People
@@ -18,7 +24,8 @@ export const CategoryTicks = () => {
                 <input 
                     id="default-checkbox" 
                     type="checkbox" 
-                    value="" 
+                    value="Premium" 
+                    onClick={(e: React.FormEvent<HTMLInputElement>) => handleSetCategories(e.currentTarget.value)}
                     className="w-4 h-4 text-black bg-black border-2 rounded accent-white mr-2 cursor-pointer" 
                 />
                 Premium
@@ -27,7 +34,8 @@ export const CategoryTicks = () => {
                 <input 
                     id="default-checkbox" 
                     type="checkbox" 
-                    value="" 
+                    value="Pets" 
+                    onClick={(e: React.FormEvent<HTMLInputElement>) => handleSetCategories(e.currentTarget.value)}
                     className="w-4 h-4 text-black bg-black border-2 rounded accent-white mr-2 cursor-pointer" 
                 />
                 Pets
@@ -36,7 +44,8 @@ export const CategoryTicks = () => {
                 <input 
                     id="default-checkbox" 
                     type="checkbox" 
-                    value="" 
+                    value="Food" 
+                    onClick={(e: React.FormEvent<HTMLInputElement>) => handleSetCategories(e.currentTarget.value)}
                     className="w-4 h-4 text-black bg-black border-2 rounded accent-white mr-2 cursor-pointer" 
                 />
                 Food
@@ -45,7 +54,8 @@ export const CategoryTicks = () => {
                 <input 
                     id="default-checkbox" 
                     type="checkbox" 
-                    value="" 
+                    value="Landmarks" 
+                    onClick={(e: React.FormEvent<HTMLInputElement>) => handleSetCategories(e.currentTarget.value)}
                     className="w-4 h-4 text-black bg-black border-2 rounded accent-white mr-2 cursor-pointer" 
                 />
                 Landmarks
@@ -54,7 +64,8 @@ export const CategoryTicks = () => {
                 <input 
                     id="default-checkbox" 
                     type="checkbox" 
-                    value="" 
+                    value="Cities" 
+                    onClick={(e: React.FormEvent<HTMLInputElement>) => handleSetCategories(e.currentTarget.value)}
                     className="w-4 h-4 text-black bg-black border-2 rounded accent-white mr-2 cursor-pointer" 
                 />
                 Cities
@@ -63,7 +74,8 @@ export const CategoryTicks = () => {
                 <input 
                     id="default-checkbox" 
                     type="checkbox" 
-                    value="" 
+                    value="Nature" 
+                    onClick={(e: React.FormEvent<HTMLInputElement>) => handleSetCategories(e.currentTarget.value)}
                     className="w-4 h-4 text-black bg-black border-2 rounded accent-white mr-2 cursor-pointer" 
                 />
                 Nature
@@ -77,6 +89,7 @@ export const CategoryTicks = () => {
                     id="default-checkbox" 
                     type="checkbox" 
                     value="" 
+                    onClick={(e: React.FormEvent<HTMLInputElement>) => handleSetCategories(e.currentTarget.value)}
                     className="w-4 h-4 text-black bg-black border-2 rounded accent-white mr-2 cursor-pointer" 
                 />
                 Lower than $20
@@ -86,6 +99,7 @@ export const CategoryTicks = () => {
                     id="default-checkbox" 
                     type="checkbox" 
                     value="" 
+                    onClick={(e: React.FormEvent<HTMLInputElement>) => handleSetCategories(e.currentTarget.value)}
                     className="w-4 h-4 text-black bg-black border-2 rounded accent-white mr-2 cursor-pointer" 
                 />
                 $20 - $100
@@ -95,6 +109,7 @@ export const CategoryTicks = () => {
                     id="default-checkbox" 
                     type="checkbox" 
                     value="" 
+                    onClick={(e: React.FormEvent<HTMLInputElement>) => handleSetCategories(e.currentTarget.value)}
                     className="w-4 h-4 text-black bg-black border-2 rounded accent-white mr-2 cursor-pointer" 
                 />
                 $100 - $200
@@ -104,6 +119,7 @@ export const CategoryTicks = () => {
                     id="default-checkbox" 
                     type="checkbox" 
                     value="" 
+                    onClick={(e: React.FormEvent<HTMLInputElement>) => handleSetCategories(e.currentTarget.value)}
                     className="w-4 h-4 text-black bg-black border-2 rounded accent-white mr-2 cursor-pointer" 
                 />
                 More than $200
