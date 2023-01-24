@@ -8,7 +8,7 @@ import { PhotosDisplay } from './PhotosDisplay';
 
 export const Photos = () => {
 
-    const [items, setItems] = useState([...sampleData.products]);
+    const [items, setItems] = useState<Product[]>([...sampleData.products]);
     const [sortBy, setSortBy] = useState<"Price" | "Alphabetically">("Price");
     const [sortAscending, setSortAscending] = useState(true);
 
@@ -32,7 +32,7 @@ export const Photos = () => {
             </div>
             <div className='flex mt-10'>
                 <CategoryTicks />
-                <PhotosDisplay />
+                <PhotosDisplay items={items} />
             </div>
         </div>
     )
