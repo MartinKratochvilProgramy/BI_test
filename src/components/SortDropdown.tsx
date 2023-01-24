@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import downCaret from '/assets/down-arrow.png';
+import { SortOptions } from '../types/sortOptions';
 
-export const SortDropdown = () => {
+interface Props {
+    setSortBy: (sortOption: SortOptions) => void;
+}
+
+export const SortDropdown: React.FC<Props> = ({ setSortBy }) => {
 
     const [display, setDisplay] = useState(false);
 
@@ -37,11 +42,13 @@ export const SortDropdown = () => {
         >
             <li
                 className="border-b block py-2 px-1 hover:bg-gray-100 cursor-pointer"
-            >
+                onClick={() => setSortBy("Price")}
+                >
                 Price
             </li>
             <li
                 className="border-b block py-2 px-1 hover:bg-gray-100 cursor-pointer"
+                onClick={() => setSortBy("Alphabetically")}
             >
                 Alphabetically
             </li>

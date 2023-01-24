@@ -1,7 +1,6 @@
 import React from 'react';
 import { Product } from '../types/product';
 import { getImageUrl } from '../utils/getImageUrl';
-import styles from "ItemCard.css";
 
 interface Props {
     item: Product;

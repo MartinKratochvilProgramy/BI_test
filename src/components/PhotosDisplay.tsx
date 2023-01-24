@@ -4,9 +4,12 @@ import { ItemCard } from './ItemCard';
 
 interface Props {
     items: Product[];
+
 }
 
-export const PhotosDisplay: React.FC<Props> = ({ items }) => {
+export const PhotosDisplay: React.FC<Props> = ({ 
+    items,
+}) => {
   return (
     <div className='w-full grid grid-cols-3 gap-10'>
         {items.map((item: Product) => {
