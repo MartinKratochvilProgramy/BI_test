@@ -11,7 +11,7 @@ export const ItemCard: React.FC<Props> = ({ item }) => {
   return (
     <div className='w-full h-96 flex flex-col justify-start'>
         <div 
-            className='relative w-full h-64 group'
+            className='relative w-full h-96 group'
             >
             <img 
                 src={getImageUrl(item.image.src)} 
@@ -22,7 +22,7 @@ export const ItemCard: React.FC<Props> = ({ item }) => {
                 ADD TO CART
             </button>
         </div>
-        <div className='font-bold text-gray-600 text-lg mt-2'>
+        <div className='font-bold text-gray-500 text-lg mt-2'>
             {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
         </div>
         <div className='font-bold text-2xl mt-1'>
