@@ -42,7 +42,7 @@ export const Navbar: React.FC<Props> = ({
 
   return (
     <div className='flex justify-between items-center w-full py-4 border-b-2'>
-      <div className='font-mono font-bold text-2xl'>Bajamas_</div>
+      <div className='font-mono font-bold text-2xl'>Bejamas_</div>
       <div className='relative p-2'>
         <img
           className='w-8 cursor-pointer'

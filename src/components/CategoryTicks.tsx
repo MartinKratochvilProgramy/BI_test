@@ -8,7 +8,7 @@ interface Props {
 export const CategoryTicks: React.FC<Props> = ({ handleSetCategories, handleSetRanges }) => {
 
   return (
-    <div className='w-80 pr-8'>
+    <div className='w-80 pr-8 hidden md:block'>
         <h1 className='font-bold mb-6'>Category</h1>
         <div className='space-y-3 border-b-2 pb-6'>
             <div className='text-lg font-medium'>

@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div className="flex w-full justify-center">
-      <div className="px-10 w-full max-w-[1200px]">
+      <div className="px-10 w-full md:w-[1200px]">
         <Navbar 
           cart={cart} 
           cartExpanded={cartExpanded}

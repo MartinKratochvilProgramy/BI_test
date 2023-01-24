@@ -12,7 +12,7 @@ export const PhotosDisplay: React.FC<Props> = ({
     addItemToCart
 }) => {
   return (
-    <div className='w-full grid grid-cols-3 gap-10'>
+    <div className='w-full grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-10'>
         {items.map((item: Product) => {
             return (
                 <div key={item.name}>
