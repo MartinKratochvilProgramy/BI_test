@@ -3,6 +3,8 @@ import { Product } from '../types/product';
 import { sampleData } from "../sampleData";
 import upDownIcon from '/assets/up-down.png';
 import { SortDropdown } from './SortDropdown';
+import { CategoryTicks } from './CategoryTicks';
+import { PhotosDisplay } from './PhotosDisplay';
 
 export const Photos = () => {
 
@@ -27,6 +29,10 @@ export const Photos = () => {
                     </button>
                     <SortDropdown />
                 </div>
+            </div>
+            <div className='flex mt-10'>
+                <CategoryTicks />
+                <PhotosDisplay />
             </div>
         </div>
     )
