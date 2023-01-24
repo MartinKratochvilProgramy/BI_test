@@ -31,7 +31,7 @@ export const Hero: React.FC<Props> = ({
         </div>
 
         <div className='flex mt-8 h-96 relative'>
-            <img className='object-cover' src={getImageUrl(heroItem.image.src)} alt="" />
+            <img className='object-cover' src={getImageUrl(heroItem.image.src)} alt="hero image" />
             <div className='absolute left-0 bottom-0 bg-white px-10 py-3 font-bold'>
                 Photo of the day
             </div>

@@ -6,8 +6,8 @@ export const sampleData = {
             "price": 3.89,
             "currency": "USD" as const,
             "image": {
-                "src": "",
-                "alt": ""
+                "src": "img1.png",
+                "alt": "img1"
             },
             "bestseller": true,
             "featured": false,
@@ -19,7 +19,10 @@ export const sampleData = {
             "category": "food",
             "price": 93.89,
             "currency": "USD" as const,
-            "image": "",
+            "image": {
+                "src": "img2.png",
+                "alt": "img2"
+            },
             "bestseller": false,
             "featured": false,
             "details": null
@@ -30,8 +33,8 @@ export const sampleData = {
             "price": 100,
             "currency": "USD" as const,
             "image": {
-                "src": "",
-                "alt": ""
+                "src": "img3.png",
+                "alt": "img3"
             },
             "bestseller": false,
             "featured": false,
@@ -46,7 +49,10 @@ export const sampleData = {
                 "width": 1020,
                 "height": 1020
             },
-            "image": "",
+            "image": {
+                "src": "img4.png",
+                "alt": "img4"
+            },
             "bestseller": false,
             "featured": false,
             "details": null
