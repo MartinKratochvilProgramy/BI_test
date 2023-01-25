@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import downCaret from '/assets/down-arrow.png';
 import { getNumOfPages } from '../utils/getNumOfPages';
-import { ITEMS_PER_PAGE } from '../globals';
 
 interface Props {
     numOfItems: number;
+    itemsPerPage: number;
     activePage: number;
     setActivePage: (page: number) => void;
 }
 
 export const Paginator: React.FC<Props> = ({ 
     numOfItems,
+    itemsPerPage,
     activePage, 
     setActivePage
 }) => {
 
-    const numOfPages = getNumOfPages(numOfItems, ITEMS_PER_PAGE);
+    const numOfPages = getNumOfPages(numOfItems, itemsPerPage);
 
     const [pages, setPages] = useState([...Array(numOfPages).keys()]);
 

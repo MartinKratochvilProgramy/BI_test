@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Item } from '../types/item';
 import { ItemCard } from './ItemCard';
 import { Paginator } from './Paginator';
-import { ITEMS_PER_PAGE } from '../globals';
 
 interface Props {
     items: Item[];
@@ -14,11 +13,13 @@ export const PhotosDisplay: React.FC<Props> = ({
     addItemToCart
 }) => {
 
+    const itemsPerPage = 6;
+
     const [activePage, setActivePage] = useState(1);
-    const [itemsToDisplay, setItemsToDisplay] = useState(items.slice(0, ITEMS_PER_PAGE));
+    const [itemsToDisplay, setItemsToDisplay] = useState(items.slice(0, itemsPerPage));
 
     useEffect(() => {
-        setItemsToDisplay(items.slice((activePage - 1) * ITEMS_PER_PAGE, (activePage - 1) * ITEMS_PER_PAGE + ITEMS_PER_PAGE));   
+        setItemsToDisplay(items.slice((activePage - 1) * itemsPerPage, (activePage - 1) * itemsPerPage + itemsPerPage));   
     }, [items, activePage])
 
     return (
@@ -38,6 +39,7 @@ export const PhotosDisplay: React.FC<Props> = ({
             <div className='flex w-full justify-center'>
                 <Paginator
                     numOfItems={items.length}
+                    itemsPerPage={itemsPerPage}
                     activePage={activePage}
                     setActivePage={setActivePage}
                 />
