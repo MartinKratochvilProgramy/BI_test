@@ -15,12 +15,11 @@ export const PhotosDisplay: React.FC<Props> = ({
 }) => {
 
     const [activePage, setActivePage] = useState(1);
-    const [itemsToDisplay, setItemsToDisplay] = useState(items.slice(0, 6));
+    const [itemsToDisplay, setItemsToDisplay] = useState(items.slice(0, ITEMS_PER_PAGE));
 
     useEffect(() => {
-        setItemsToDisplay(items.slice(activePage - 1, activePage - 1 + ITEMS_PER_PAGE));   
+        setItemsToDisplay(items.slice((activePage - 1) * ITEMS_PER_PAGE, (activePage - 1) * ITEMS_PER_PAGE + ITEMS_PER_PAGE));   
     }, [items, activePage])
-    
 
     return (
         <div>

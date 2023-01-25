@@ -9,9 +9,9 @@ interface Props {
 
 export const ItemCard: React.FC<Props> = ({ item, addItemToCart }) => {
   return (
-    <div className='w-full h-96 flex flex-col justify-start'>
+    <div className='w-full flex flex-col justify-start'>
         <div 
-            className='relative w-full h-96 group'
+            className='relative w-full h-80 group'
             >
             <img 
                 src={getImageUrl(item.image.src)} 
