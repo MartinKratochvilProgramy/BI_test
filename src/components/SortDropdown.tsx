@@ -13,16 +13,16 @@ export const SortDropdown: React.FC<Props> = ({ sortBy, setSortBy }) => {
 
     const displayStyle = display ? { display: "block" } : { display: "none" };  
 
-      function handleDropdownClick (e: React.MouseEvent) {
-    if (!display) {
-      document.addEventListener('click', () => setDisplay(false));
-      e.stopPropagation();
-    } else {
-      document.removeEventListener('click', () => setDisplay(false));
-      e.stopPropagation();
+    function handleDropdownClick (e: React.MouseEvent) {
+        if (!display) {
+            document.addEventListener('click', () => setDisplay(false));
+            e.stopPropagation();
+        } else {
+            document.removeEventListener('click', () => setDisplay(false));
+            e.stopPropagation();
+        }
+        setDisplay(!display);
     }
-    setDisplay(!display);
-  }
 
   return (
     <div className='relative'>

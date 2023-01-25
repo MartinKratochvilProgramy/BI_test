@@ -23,44 +23,44 @@ export const Paginator: React.FC<Props> = ({
       setPages([...Array(numOfPages).keys()])
     }, [numOfItems])
     
-  return (
-    <div className="flex justify-center">
-        <nav aria-label="Page navigation example">
-            <ul className="flex justify-center items-center space-x-2">
-                {
-                    activePage > 1 && 
-                    <li 
-                        onClick={() => setActivePage(activePage - 1)}
-                        className="cursor-pointer"
-                        >
-                        <img src={downCaret} className="rotate-90 w-3" alt="left arrow" />
-                    </li>
-                }
-                {
-                    pages.map(pageIndex => {
-                        return (
-                            <li 
-                                className={pageIndex + 1 === activePage ? "text-black font-semibold cursor-pointer" : "text-gray-400 cursor-pointer"} 
-                                key={pageIndex}
-                                onClick={() => setActivePage(pageIndex+1)}
+    return (
+        <div className="flex justify-center">
+            <nav aria-label="Page navigation example">
+                <ul className="flex justify-center items-center space-x-2">
+                    {
+                        activePage > 1 && 
+                        <li 
+                            onClick={() => setActivePage(activePage - 1)}
+                            className="cursor-pointer"
                             >
-                                {pageIndex + 1}
-                            </li>
-                        )
-                    })
-                }
-                {
-                    activePage < numOfPages && 
-                    <li
-                        onClick={() => setActivePage(activePage + 1)}
-                        className="cursor-pointer"
-                    >
-                        <img src={downCaret} className="rotate-[-90deg] w-3" alt="left arrow" />
-                    </li>
-                
-                }
-            </ul>
-        </nav>
-    </div>
-  )
+                            <img src={downCaret} className="rotate-90 w-3" alt="left arrow" />
+                        </li>
+                    }
+                    {
+                        pages.map(pageIndex => {
+                            return (
+                                <li 
+                                    className={pageIndex + 1 === activePage ? "text-black font-semibold cursor-pointer" : "text-gray-400 cursor-pointer"} 
+                                    key={pageIndex}
+                                    onClick={() => setActivePage(pageIndex+1)}
+                                >
+                                    {pageIndex + 1}
+                                </li>
+                            )
+                        })
+                    }
+                    {
+                        activePage < numOfPages && 
+                        <li
+                            onClick={() => setActivePage(activePage + 1)}
+                            className="cursor-pointer"
+                        >
+                            <img src={downCaret} className="rotate-[-90deg] w-3" alt="left arrow" />
+                        </li>
+                    
+                    }
+                </ul>
+            </nav>
+        </div>
+    )
 }

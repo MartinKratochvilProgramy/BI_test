@@ -19,8 +19,6 @@ export const Navbar: React.FC<Props> = ({
   removeItemFromCart
 }) => {
   
-
-
   function handleClearClick() {
     
     setCartExpanded(false);
