@@ -116,6 +116,7 @@ export const Photos: React.FC<Props> = ({ addItemToCart }) => {
                 checkbox.checked = false;
             }
             setItems([...sampleData.products]);
+            setRange("");
         } else {
             setRange(newRange);
         }
