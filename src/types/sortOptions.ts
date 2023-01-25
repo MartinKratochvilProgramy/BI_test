@@ -1,1 +1,1 @@
-export type SortOptions = "Price" | "Alphabetically";
+export type SortOptions = 'Price' | 'Alphabetically'
