@@ -17,8 +17,8 @@ export const Photos: React.FC<Props> = ({ addItemToCart }) => {
     const [items, setItems] = useState<Item[]>([...sampleData.products]);
     const [sortBy, setSortBy] = useState<SortOptions>("Price");
     const [sortAscending, setSortAscending] = useState(true);
-    const [categories, setCategories] = useState<string[]>([]);     // TODO: add types for categories
-    const [range, setRange] = useState("");                         // TODO: add types for ranges
+    const [categories, setCategories] = useState<string[]>([]);     
+    const [range, setRange] = useState("");                         
     const [displayMobileMenu, setDisplayMobileMenu] = useState(false);
 
     useEffect(() => {
