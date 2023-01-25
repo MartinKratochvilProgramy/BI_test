@@ -1,28 +1,27 @@
 import React from 'react'
 import { Item } from '../types/item'
-import img2 from '/assets/img2.png';
-import img3 from '/assets/img3.png';
-import img4 from '/assets/img4.png';
-import { getImageUrl } from '../utils/getImageUrl';
+import img2 from '../../public/assets/img2.png'
+import img3 from '../../public/assets/img3.png'
+import img4 from '../../public/assets/img4.png'
+import { getImageUrl } from '../utils/getImageUrl'
 
 interface Props {
-    featuredItem: Item;
-    addItemToCart: (item: Item) => void;
+  featuredItem: Item
+  addItemToCart: (item: Item) => void
 }
 
 export const FeaturedItem: React.FC<Props> = ({
-    featuredItem,
-    addItemToCart
+  featuredItem,
+  addItemToCart
 }) => {
-
-    function handleaddItemToCartClick() {
-        addItemToCart(featuredItem);
-    }
+  function handleaddItemToCartClick (): void {
+    addItemToCart(featuredItem)
+  }
 
   return (
       <div className='flex flex-col w-full pt-6 md:pt-10 border-b-2'>
         <div className='flex justify-between w-full'>
-            <div className='font-bold text-2xl'>{featuredItem.name}</div> 
+            <div className='font-bold text-2xl'>{featuredItem.name}</div>
             <button
                 onClick={handleaddItemToCartClick}
                 className='rounded-none hidden md:block px-6 py-1 bg-black text-white text-sm'>
@@ -73,11 +72,10 @@ export const FeaturedItem: React.FC<Props> = ({
                       Size: {featuredItem.details?.dimmentions.width} x {featuredItem.details?.dimmentions.height}
                   </div>
                   <div className='text-gray-600 my-1'>
-                      Size: {featuredItem.details?.size && featuredItem.details?.size / 1000} mb
+                      Size: {((featuredItem.details?.size) != null) && featuredItem.details?.size / 1000} mb
                   </div>
             </div>
         </div>
-        
 
       </div>
   )

@@ -1,41 +1,38 @@
-import React from 'react';
-import shoppingCartIcon from '/assets/shopping-cart.png';
-import { Item } from "../types/item";
-import { getImageUrl } from '../utils/getImageUrl';
+import React from 'react'
+import shoppingCartIcon from '../../public/assets/shopping-cart.png'
+import { Item } from '../types/item'
+import { getImageUrl } from '../utils/getImageUrl'
 
 interface Props {
-  cart: Item[];
-  cartExpanded: boolean;
-  setCartExpanded: (value: boolean) => void;
-  clearCart: () => void;
-  removeItemFromCart: (e: React.MouseEvent, item: Item) => void;
+  cart: Item[]
+  cartExpanded: boolean
+  setCartExpanded: (value: boolean) => void
+  clearCart: () => void
+  removeItemFromCart: (e: React.MouseEvent, item: Item) => void
 }
 
-export const Navbar: React.FC<Props> = ({ 
-  cart, 
+export const Navbar: React.FC<Props> = ({
+  cart,
   cartExpanded,
   setCartExpanded,
-  clearCart, 
+  clearCart,
   removeItemFromCart
 }) => {
-  
-  function handleClearClick() {
-    
-    setCartExpanded(false);
-    clearCart();
+  function handleClearClick (): void {
+    setCartExpanded(false)
+    clearCart()
   }
-  
-  function handleExpandClick(e: React.MouseEvent) {
-    
+
+  function handleExpandClick (e: React.MouseEvent): void {
     if (!cartExpanded) {
-      document.addEventListener('click', () => setCartExpanded(false));
-      e.stopPropagation();
+      document.addEventListener('click', () => { setCartExpanded(false) })
+      e.stopPropagation()
     } else {
-      document.removeEventListener('click', () => setCartExpanded(false));
-      e.stopPropagation();
+      document.removeEventListener('click', () => { setCartExpanded(false) })
+      e.stopPropagation()
     }
 
-    setCartExpanded(!cartExpanded);
+    setCartExpanded(!cartExpanded)
   }
 
   return (
@@ -46,11 +43,11 @@ export const Navbar: React.FC<Props> = ({
           className='w-8 cursor-pointer'
           src={shoppingCartIcon}
           alt="shopping cart"
-          onClick={(e) => handleExpandClick(e)}
+          onClick={(e) => { handleExpandClick(e) }}
         />
         {cart.length > 0 && <div className='absolute right-0 bottom-0 bg-black font-bold text-white text-xs px-1'>{cart.length}</div>}
-      
-        {cartExpanded && 
+
+        {cartExpanded &&
           <div className='z-10 absolute flex flex-col right-0 border-2 bg-white w-80 px-6 py-2'>
             <div className='space-y-2 pb-4 border-b-2'>
 
@@ -60,7 +57,7 @@ export const Navbar: React.FC<Props> = ({
                     <div className='flex w-full justify-end mb-2'>
                       <button
                         className='font-bold'
-                        onClick={(e) => removeItemFromCart(e, item)}>
+                        onClick={(e) => { removeItemFromCart(e, item) }}>
                         X
                       </button>
                     </div>
@@ -90,9 +87,9 @@ export const Navbar: React.FC<Props> = ({
               </button>
             </div>
           </div>
-        
+
         }
-        
+
       </div>
     </div>
   )

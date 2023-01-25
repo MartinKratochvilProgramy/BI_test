@@ -1,21 +1,21 @@
-import React from 'react';
-import { Item } from '../types/item';
-import { getImageUrl } from '../utils/getImageUrl';
+import React from 'react'
+import { Item } from '../types/item'
+import { getImageUrl } from '../utils/getImageUrl'
 
 interface Props {
-    item: Item;
-    addItemToCart: (item: Item) => void;
+  item: Item
+  addItemToCart: (item: Item) => void
 }
 
 export const ItemCard: React.FC<Props> = ({ item, addItemToCart }) => {
   return (
     <div className='w-full flex flex-col justify-start'>
-        <div 
+        <div
             className='relative w-full h-80 group'
             >
-            <img 
-                src={getImageUrl(item.image.src)} 
-                alt={item.image.alt} 
+            <img
+                src={getImageUrl(item.image.src)}
+                alt={item.image.alt}
                 className='w-full h-full object-cover'
             />
             {item.featured &&
@@ -23,9 +23,9 @@ export const ItemCard: React.FC<Props> = ({ item, addItemToCart }) => {
                     Best Seller
                 </div>
             }
-            <button 
+            <button
                 className='hidden group-hover:flex absolute left-0 right-0 bottom-0 h-8 bg-black text-white justify-center items-center font-semibold'
-                onClick={() => addItemToCart(item)}    
+                onClick={() => { addItemToCart(item) }}
             >
                 ADD TO CART
             </button>
