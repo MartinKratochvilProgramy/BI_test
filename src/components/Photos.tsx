@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Product } from '../types/product';
+import { Item } from '../types/item';
 import { sampleData } from "../sampleData";
 import upDownIcon from '/assets/up-down.png';
 import listIcon from '/assets/list.png';
@@ -9,12 +9,12 @@ import { PhotosDisplay } from './PhotosDisplay';
 import { SortOptions } from '../types/sortOptions';
 
 interface Props {
-    addItemToCart: (item: Product) => void;
+    addItemToCart: (item: Item) => void;
 }
 
 export const Photos: React.FC<Props> = ({ addItemToCart }) => {
 
-    const [items, setItems] = useState<Product[]>([...sampleData.products]);
+    const [items, setItems] = useState<Item[]>([...sampleData.products]);
     const [sortBy, setSortBy] = useState<SortOptions>("Price");
     const [sortAscending, setSortAscending] = useState(true);
     const [categories, setCategories] = useState<string[]>([]);     // TODO: add types for categories
@@ -51,7 +51,7 @@ export const Photos: React.FC<Props> = ({ addItemToCart }) => {
     useEffect(() => {
         // category sorting
         if (categories.length > 0) {
-            const newItems: Product[] = [];
+            const newItems: Item[] = [];
             for (const item of sampleData.products) {
                 if (categories.includes(item.category)) {
                     newItems.push(item);

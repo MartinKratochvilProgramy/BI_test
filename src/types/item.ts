@@ -16,7 +16,7 @@ interface Details {
 
 type Currency = "USD";
 
-export interface Product {
+export interface Item {
     name: string;
     category: string;
     price: number;

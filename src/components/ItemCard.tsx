@@ -1,10 +1,10 @@
 import React from 'react';
-import { Product } from '../types/product';
+import { Item } from '../types/item';
 import { getImageUrl } from '../utils/getImageUrl';
 
 interface Props {
-    item: Product;
-    addItemToCart: (item: Product) => void;
+    item: Item;
+    addItemToCart: (item: Item) => void;
 }
 
 export const ItemCard: React.FC<Props> = ({ item, addItemToCart }) => {

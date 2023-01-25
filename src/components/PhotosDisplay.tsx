@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Product } from '../types/product';
+import { Item } from '../types/item';
 import { ItemCard } from './ItemCard';
 import { Paginator } from './Paginator';
 import { ITEMS_PER_PAGE } from '../globals';
 
 interface Props {
-    items: Product[];
-    addItemToCart: (item: Product) => void;
+    items: Item[];
+    addItemToCart: (item: Item) => void;
 }
 
 export const PhotosDisplay: React.FC<Props> = ({ 
@@ -25,7 +25,7 @@ export const PhotosDisplay: React.FC<Props> = ({
     return (
         <div>
             <div className='w-full grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-10'>
-                {itemsToDisplay.map((item: Product, index) => {
+                {itemsToDisplay.map((item: Item, index) => {
                         return (
                             <div key={index}>
                                 <ItemCard 

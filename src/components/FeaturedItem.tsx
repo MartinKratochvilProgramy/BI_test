@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import { Product } from '../types/product'
+import React from 'react'
+import { Item } from '../types/item'
 import img2 from '/assets/img2.png';
 import img3 from '/assets/img3.png';
 import img4 from '/assets/img4.png';
 import { getImageUrl } from '../utils/getImageUrl';
 
 interface Props {
-    featuredItem: Product;
-    addItemToCart: (item: Product) => void;
+    featuredItem: Item;
+    addItemToCart: (item: Item) => void;
 }
 
-export const Hero: React.FC<Props> = ({
+export const FeaturedItem: React.FC<Props> = ({
     featuredItem,
     addItemToCart
 }) => {

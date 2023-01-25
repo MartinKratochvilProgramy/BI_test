@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import shoppingCartIcon from '/assets/shopping-cart.png';
-import { Product } from "../types/product";
+import { Item } from "../types/item";
 import { getImageUrl } from '../utils/getImageUrl';
 
 interface Props {
-  cart: Product[];
+  cart: Item[];
   cartExpanded: boolean;
   setCartExpanded: (value: boolean) => void;
   clearCart: () => void;
-  removeItemFromCart: (e: React.MouseEvent, item: Product) => void;
+  removeItemFromCart: (e: React.MouseEvent, item: Item) => void;
 }
 
 export const Navbar: React.FC<Props> = ({ 
